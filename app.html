@@ -50,7 +50,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="app.html"
-                >The App</a
+                >Calculator</a
               >
             </li>
             <li class="nav-item">
@@ -74,7 +74,50 @@
     <!-- ==== MAIN ==== -->
     <main class="flex-shrink-0">
       <div class="container">
-        <h1 class="mt-5">Use the app below</h1>
+        <h1 class="mt-5">Loan Calculator</h1>
+        <div class="row">
+          <div class="col">
+            <form class="loanForm">
+              <div class="form-row">
+                <div class="form-group col-12">
+                  <label for="loanAmount">Loan Amount:</label>
+                  <input type="number" class="form-control" id="loanAmount" name="loanAmount" min="1000" step="500" value="15000">
+                </div>
+                <div class="form-group col-12">
+                  <label for="loanTerm">Term In Months:</label>
+                  <input type="number" class="form-control" id="loanTerm" name="loanTerm" min="1" value="30">
+                </div>
+                <div class="form-group col-12">
+                  <label for="loanRate">Rate:</label>
+                  <input type="number" class="form-control" id="loanRate" name="loanRate" min="1" step="500" value="4">
+                </div>
+              </div>
+              <button type="button" class="btn btn-dark mt-2" onclick="calculateAmortization()">Calculate</button>
+              <button type="button" class="btn btn-outline-dark mt-2" onclick="clearCalculateAmortization()">Clear</button>
+            </form>
+          </div>
+          <div class="col">
+            <div id="paymentTitle">
+              <p>Your Monthly Payments</p>
+            </div>
+            <p id="monthlyPayment"></p>
+            <div class="row">
+              <div class="col-6">
+                <label class="text-left" for="totalPrincipal">Total Principal</label>
+              </div>
+              <div class="col-6 text-end" id="totalPrincipal"></div>
+              <div class="col-6">
+                <label class="text-left" for="totalInterest">Total Interest</label>
+              </div>
+              <div class="col-6 text-end" id="totalInterest"></div>
+              <div class="col-6">
+                <label class="text-left" for="totalCost">Total Cost</label>
+              </div>
+            <div class="col-6 text-end" id="totalCost"></div>
+          </div>
+        </div>
+        </div>
+        <div class="row" id="amortizationSchedule"></div>
       </div>
     </main>
     <!-- ==== FOOTER ==== -->

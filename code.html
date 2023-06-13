@@ -49,7 +49,7 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="app.html">The App</a>
+              <a class="nav-link" href="app.html">Calculator</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="code.html"
@@ -81,20 +81,72 @@
           <div class="col-lg-8">
             <pre class="line-numbers">
                     <code class="language-javascript">
-                        //test
-                        function helloClearCalc() {
-                          alert("Clear Calculator");
-                        }
+                      // inject loan calculation in a table
+                      function calculateAmortization() {
+                          const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+                          const loanTerm = parseInt(document.getElementById('loanTerm').value);
+                          const loanRate = parseFloat(document.getElementById('loanRate').value);
+                      
+                          // user input for loan amount needs to be more than 0
+                          if (loanAmount <= 0 || isNaN(loanAmount)) {
+                              alert("Please enter a valid loan amount (positive number)");
+                              return;
+                          }
+                      
+                          // user input for term length needs to be more than 0
+                          if (loanTerm <= 0 || isNaN(loanTerm) || !Number.isInteger(loanTerm)) {
+                              alert("Please enter a valid term (positive integer)");
+                              return;
+                          }
+                      
+                          // user input for rate needs to be more than 0
+                          if (loanRate <= 0 || isNaN(loanRate)) {
+                              alert("Please enter a valid rate (positive number)");
+                              return;
+                          }
+                      
+                          let numPayments = loanTerm * 12;
+                          let ratePerPeriod = (loanRate / 100) / 12;
+                          let discountFactor = (Math.pow((1 + ratePerPeriod), numPayments) - 1) / (ratePerPeriod * Math.pow((1 + ratePerPeriod), numPayments));
+                          let loanPayment = loanAmount / discountFactor;
+                      
+                          let balance = loanAmount;
+                          let totalInterest = 0;
+
+                          // prism.js error
+                          let scheduleTable = '<div class="col"><table class="table table-striped table-hover"><thead><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
+                      
+                          for (let month = 1; month <= numPayments; month++) {
+                              let interest = balance * ratePerPeriod;
+                              let principal = loanPayment - interest;
+                              balance -= principal;
+                              totalInterest += interest;
+                      
+                              // prism.js error
+                              scheduleTable += '<tr><td>' + month + '</td><td>' + loanPayment.toFixed(2) + '</td><td>' + principal.toFixed(2) + '</td><td>' + interest.toFixed(2) + '</td><td>' + totalInterest.toFixed(2) + '</td><td>' + Math.abs(balance).toFixed(2) + '</td></tr>';
+                          }
+                      
+                          // prism.js error
+                          scheduleTable += '</table></div>';
+                      
+                          document.getElementById('amortizationSchedule').innerHTML = scheduleTable;
+                      }
+                      
+                      // clear table
+                      function clearCalculateAmortization() {
+                          document.getElementById('amortizationSchedule').innerHTML = '';
+                      }
+                      
                     </code>
                 </pre>
           </div>
           <div class="col-lg-4">
             <p>The Code is Structured in One Function.</p>
-            <h5>Hello ClearCalc</h5>
+            <h5>calculateAmortization</h5>
             <p>
-              Hello ClearCalc is a function that displays an alert with a
-              message of "Clear Calculator"
+              calculateAmortization is a function that calculates Months, Payment, Principal, Interest, Total Interest, Balance. It then generates and displays a table with all of the data in a simple and crystal clear way.
             </p>
+            <p><span class="text-danger">Note:</span> Prism.js (the code highlighter used to display the code on this page) does not display some code correctly. In this case, any of the code that generates table elements is not displayed properly. I have commented where each error is with '// prism.js error'.</p>
           </div>
         </div>
       </div>
