@@ -23,12 +23,12 @@ function calculateAmortization() {
     }
 
     let numPayments = loanTerm;
-    let ratePerPeriod = loanRate * 0.01 / 12; // convert to decimal and divide by 12
+    let ratePerPeriod = loanRate * 0.01 / 12; // convert to decimal and convert annual to monthly
     let loanPayment = loanAmount * ratePerPeriod * Math.pow(1 + ratePerPeriod, numPayments) / (Math.pow(1 + ratePerPeriod, numPayments) - 1);
 
     let balance = loanAmount;
     let totalInterest = 0;
-    let scheduleTable = '<div class="col"><table class="table table-striped table-hover"><thead class="text-white" id="tableHeader"><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
+    let scheduleTable = '<div class="col mx-0 px-0"><table class="table table-striped table-hover"><thead class="text-white" id="tableHeader"><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
 
     // loop over each month for the length of the term
     // calculate each value for current month
@@ -60,11 +60,24 @@ function calculateAmortization() {
     document.querySelector('#monthlyPayment').textContent = currencyFormatter.format(loanPayment);
 }
 
+// return key on keyboard clicks calculate button
+
+const input = document.querySelector('#loanRate');
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.querySelector("#calculateBtn").click();
+  }
+});
+
 // clear table and total calculations
 function clearCalculateAmortization() {
     document.querySelector('#amortizationSchedule').innerHTML = '';
     document.querySelector("#totalPrincipal").textContent = '';
     document.querySelector("#totalInterest").textContent = '';
     document.querySelector("#totalCost").textContent = '';
-    document.querySelector("#monthlyPayment").textContent = '';
+    document.querySelector("#monthlyPayment").textContent = '$0';
 }

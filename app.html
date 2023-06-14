@@ -73,34 +73,34 @@
     </nav>
     <!-- ==== MAIN ==== -->
     <main class="flex-shrink-0">
-      <div class="container">
+      <div class="container pt-5">
         <h1 class="mt-5">Loan Calculator</h1>
         <div class="row">
-          <div class="col">
-            <form class="loanForm">
+          <div class="col-12 col-md-6">
+            <form class="loanForm p-2">
               <div class="form-row">
                 <div class="form-group col-12">
                   <label for="loanAmount">Loan Amount:</label>
-                  <input type="number" class="form-control" id="loanAmount" name="loanAmount" min="1000" step="500" value="15000">
+                  <input type="number" class="form-control form-input" id="loanAmount" name="loanAmount" min="1000" step="500" value="15000">
                 </div>
                 <div class="form-group col-12">
                   <label for="loanTerm">Term In Months:</label>
-                  <input type="number" class="form-control" id="loanTerm" name="loanTerm" min="1" value="30">
+                  <input type="number" class="form-control form-input" id="loanTerm" name="loanTerm" min="1" value="60">
                 </div>
                 <div class="form-group col-12">
                   <label for="loanRate">Rate:</label>
-                  <input type="number" class="form-control" id="loanRate" name="loanRate" min="1" step="500" value="4">
+                  <input type="number" class="form-control form-input" id="loanRate" name="loanRate" min="1" step=".5" value="4">
                 </div>
               </div>
-              <button type="button" class="btn btn-dark mt-2" onclick="calculateAmortization()">Calculate</button>
-              <button type="button" class="btn btn-outline-dark mt-2" onclick="clearCalculateAmortization()">Clear</button>
+              <button type="button" class="btn btn-dark mt-2" onclick="calculateAmortization()" id="calculateBtn">Calculate</button>
+              <button type="button" class="btn btn-outline-dark mt-2 clear-button" onclick="clearCalculateAmortization()">Clear</button>
             </form>
           </div>
-          <div class="col">
+          <div class="col monthly-payments-section">
             <div id="paymentTitle">
               <p>Your Monthly Payments</p>
             </div>
-            <p id="monthlyPayment"></p>
+            <p id="monthlyPayment">$0</p>
             <div class="row">
               <div class="col-6">
                 <label class="text-left" for="totalPrincipal">Total Principal</label>
@@ -117,7 +117,7 @@
           </div>
         </div>
         </div>
-        <div class="row" id="amortizationSchedule"></div>
+        <div class="row mx-0" id="amortizationSchedule"></div>
       </div>
     </main>
     <!-- ==== FOOTER ==== -->
