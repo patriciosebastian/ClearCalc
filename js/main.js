@@ -28,7 +28,7 @@ function calculateAmortization() {
 
     let balance = loanAmount;
     let totalInterest = 0;
-    let scheduleTable = '<div class="col mx-0 px-0"><table class="table table-striped table-hover"><thead class="text-white" id="tableHeader"><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
+    let scheduleTable = '<div class="col mx-0 px-0"><div class="table-responsive"><table class="table table-striped table-hover"><thead class="text-white table-header" id="tableHeader"><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
 
     // loop over each month for the length of the term
     // calculate each value for current month
@@ -42,7 +42,7 @@ function calculateAmortization() {
         scheduleTable += '<tr><td>' + month + '</td><td>' + loanPayment.toFixed(2) + '</td><td>' + principal.toFixed(2) + '</td><td>' + interest.toFixed(2) + '</td><td>' + totalInterest.toFixed(2) + '</td><td>' + Math.abs(balance).toFixed(2) + '</td></tr>';
     }
 
-    scheduleTable += '</table></div>';
+    scheduleTable += '</table></div></div>';
 
     //inject generated table to the page
     document.querySelector('#amortizationSchedule').innerHTML = scheduleTable;
@@ -61,14 +61,13 @@ function calculateAmortization() {
 }
 
 // return key on keyboard clicks calculate button
-
 const input = document.querySelector('#loanRate');
 input.addEventListener("keypress", function(event) {
-  // If the user presses the "Enter" key on the keyboard
+  // if the user presses the "Enter" key on the keyboard
   if (event.key === "Enter") {
-    // Cancel the default action
+    // cancel the default action
     event.preventDefault();
-    // Trigger the button element with a click
+    // trigger the button element with a click
     document.querySelector("#calculateBtn").click();
   }
 });

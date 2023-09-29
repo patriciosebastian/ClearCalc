@@ -22,16 +22,18 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="image/favicon_1-32x32.png" />
+    <link rel="icon" type="image/png" href="image/favicon.png" />
     <!-- External JS -->
     <script src="js/main.js" defer></script>
   </head>
 
   <body class="d-flex flex-column h-100">
-    <!-- ==== NAV ==== -->
+    <!-- **** NAV **** -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">ClearCalc</a>
+        <a href="index.html">
+          <img class="navbar-brand" src="image/ClearCalc_light_color.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'" width="90"/>
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -53,112 +55,65 @@
                 >Calculator</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="code.html">The Code</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://github.com/patriciosebastian"
-                target="_blank"
-                >Git Repo</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" target="_blank">About</a>
-            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- ==== MAIN ==== -->
+    <!-- **** MAIN **** -->
     <main class="flex-shrink-0">
       <div class="container pt-5">
         <h1 class="mt-5">Loan Calculator</h1>
         <div class="row">
           <div class="col-12 col-md-6">
-            <form class="loanForm p-2">
+            <form class="loan-form p-2">
               <div class="form-row">
                 <div class="form-group col-12">
                   <label for="loanAmount">Loan Amount:</label>
-                  <input type="number" class="form-control form-input" id="loanAmount" name="loanAmount" min="1000" step="500" value="15000">
+                  <input type="number" class="loan-amount form-control form-input" id="loanAmount" name="loanAmount" min="1000" step="500" value="15000">
                 </div>
                 <div class="form-group col-12">
                   <label for="loanTerm">Term In Months:</label>
-                  <input type="number" class="form-control form-input" id="loanTerm" name="loanTerm" min="1" value="60">
+                  <input type="number" class="loan-term form-control form-input" id="loanTerm" name="loanTerm" min="1" value="60">
                 </div>
                 <div class="form-group col-12">
                   <label for="loanRate">Rate:</label>
-                  <input type="number" class="form-control form-input" id="loanRate" name="loanRate" min="1" step=".5" value="4">
+                  <input type="number" class="loan-rate form-control form-input" id="loanRate" name="loanRate" min="1" step=".5" value="4">
                 </div>
               </div>
               <button type="button" class="btn btn-dark mt-2" onclick="calculateAmortization()" id="calculateBtn">Calculate</button>
-              <button type="button" class="btn btn-outline-dark mt-2 clear-button" onclick="clearCalculateAmortization()">Clear</button>
+              <button type="button" class="clear-button btn btn-outline-dark mt-2" onclick="clearCalculateAmortization()">Clear</button>
             </form>
           </div>
           <div class="col monthly-payments-section">
-            <div id="paymentTitle">
+            <div class="payment-title" id="paymentTitle">
               <p>Your Monthly Payments</p>
             </div>
-            <p id="monthlyPayment">$0</p>
+            <p class="monthly-payment" id="monthlyPayment">$0</p>
             <div class="row">
-              <div class="col-6">
+              <div class="col-6 totals">
                 <label class="text-left" for="totalPrincipal">Total Principal</label>
               </div>
-              <div class="col-6 text-end" id="totalPrincipal"></div>
-              <div class="col-6">
+              <div class="col-6 text-end totals" id="totalPrincipal"></div>
+              <div class="col-6 totals">
                 <label class="text-left" for="totalInterest">Total Interest</label>
               </div>
-              <div class="col-6 text-end" id="totalInterest"></div>
-              <div class="col-6">
+              <div class="col-6 text-end totals" id="totalInterest"></div>
+              <div class="col-6 totals">
                 <label class="text-left" for="totalCost">Total Cost</label>
               </div>
-            <div class="col-6 text-end" id="totalCost"></div>
+            <div class="total-cost col-6 text-end totals" id="totalCost"></div>
           </div>
         </div>
         </div>
-        <div class="row mx-0" id="amortizationSchedule"></div>
+        <div class="amortization-schedule row mx-0" id="amortizationSchedule"></div>
       </div>
     </main>
-    <!-- ==== FOOTER ==== -->
-    <footer class="footer mt-auto py-3">
-      <!-- get rid of sticky footer above? -->
+    <!-- **** FOOTER **** -->
+    <footer class="footer mt-auto py-3 bottom-0 w-100">
       <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-lg-3 gy-2">
-          <div
-            class="col order-last order-lg-first text-light d-flex align-items-center justify-content-start"
-          >
-            <div>
-              <span class="text-muted">&copy;2023</span> Patricio Salazar |
-              psebastiansalazar@gmail.com
-            </div>
-          </div>
-          <div
-            class="col d-flex align-items-center justify-content-start justify-content-lg-center"
-          >
-            <p class="text-light mb-0">CC</p>
-          </div>
-          <div
-            class="col d-flex align-items-center justify-content-start justify-content-lg-end"
-          >
-            <div class="row">
-              <div class="col social">
-                <a href="#" target="_blank"
-                  ><i class="fab fa-linkedin fa-2x"></i
-                ></a>
-              </div>
-              <div class="col social">
-                <a href="#" target="_blank"
-                  ><i class="fab fa-github fa-2x"></i
-                ></a>
-              </div>
-              <div class="col social">
-                <a href="#" target="_blank"
-                  ><i class="fab fa-twitter fa-2x"></i
-                ></a>
-              </div>
-            </div>
-          </div>
+        <div class="row">
+          <!-- <p class="text-light text-center mb-0">ClearCalc</p> -->
+          <img class="footer-logo text-light text-center mb-0 mx-auto" src="image/ClearCalc_light_color.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'"/>
         </div>
       </div>
     </footer>

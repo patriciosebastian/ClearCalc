@@ -14,6 +14,7 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  height: 100dvh;
 }
 
 img, picture, video, canvas, svg {
@@ -36,9 +37,11 @@ p, h1, h2, h3, h4, h5, h6 {
   --secondary-color: #ff993b;
   --dark-color: #292929;
   --white-color: #e7e7e7;
+  --off-white: #f5f5f5;
 }
 
 body {
+  background-color: var(--off-white);
   color: var(--dark-color);
 }
 
@@ -48,70 +51,74 @@ nav {
   background-color: var(--dark-color);
 }
 
-/***** Main *****/
-
-@media screen and (max-width: 991px) and (orientation: landscape) {
-  .main-img-container {
-    margin-top: 600px !important;
-  }
-  .main-h1-container {
-    margin-bottom: 150px !important;
-  }
-}
-
-@media screen and (max-width: 540px) and (max-height: 740px) and (orientation: portrait) {
-  .main-h1-container {
-    margin-bottom: 120px;
-  }
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.primary-color {
   color: var(--primary-color);
 }
 
-/***** Loan Form *****/
+/***** Main *****/
 
-.loanForm {
-  background-color: rgb(231, 231, 231);
-  border-radius: 2px;
+.logo-img {
+  max-width: 289.33px;
 }
 
-.loanForm input {
+.hero-img {
+  max-width: 75%;
+}
+
+.main-img-container {
+  margin-top: 4rem;
+}
+
+.cta-btn {
+  border-color: var(--primary-color);
+}
+
+.cta-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/***** Loan Calculator *****/
+
+.loan-form {
+  background-color: rgb(231, 231, 231);
+  border-radius: 2px;
+  padding: .7rem !important;
+}
+
+.loan-form input {
   width: 100%;
   padding: .5rem;
 }
 
-.clear-button {
-  margin-left: 4px;
-}
-
-#paymentTitle {
+.payment-title {
   text-align: center;
   font-size: 1.5rem;
   font-style: italic;
 }
 
-#monthlyPayment {
+.table {
+  margin-bottom: 5rem;
+}
+
+.monthly-payment {
   text-align: center;
   font-size: 4rem;
   font-weight: bold;
   color: #2B404F;
 }
 
-.totals-section {
-  
-}
-
-#tableHeader {
+.table-header {
   background-color: #2B404F;
 }
 
-#totalCost {
+.total-cost {
   font-weight: bold;
 }
 
@@ -119,18 +126,12 @@ h6 {
   box-shadow: none !important;
 }
 
-#amortizationSchedule {
-  margin-top: 2rem;
+.clear-button {
+  margin-left: 4px;
 }
 
-@media screen and (max-width: 768px){
-  table>:not(caption)>*>* {
-    padding: 0.5rem 0 !important;
-  }
-
-  th {
-    border-width: 1px;
-  }
+.amortization-schedule {
+  margin-top: 2rem;
 }
 
 /***** Footer *****/
@@ -142,21 +143,79 @@ footer {
   padding-right: 1rem;
 }
 
-footer .social > a {
-  color: var(--white-color);
-  opacity: 0.75;
+.footer-logo {
+  width: 110px;
+  height: auto;
 }
 
-footer .social > a:hover {
-  opacity: 0.9;
-  color: var(--primary-color);
+/***** MEDIA QUERIES *****/
+
+/*== HOME ==*/
+
+/* Small */
+@media (min-width: 500px) {
+  footer {
+    position: fixed;
+  }
+  .main-img-container {
+    margin-top: 0 !important;
+  }
 }
 
-/***** Code Page *****/
+@media screen and (max-width: 540px) and (max-height: 740px) and (orientation: portrait) {
+  .main-h1-container {
+    margin-bottom: 120px;
+  }
+}
 
-code[class*="language-javascript"],
-pre[class*="language-javascript"] {
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
+/* Medium */
+@media (max-width: 991px) {
+  .logo-img {
+    max-width: 216px;
+  }
+  .hero-img {
+    max-width: 246px;
+  }
+}
+
+@media screen and (max-width: 991px) and (orientation: landscape) {
+  .main-h1-container {
+    margin-bottom: 150px !important;
+  }
+}
+
+/* Large */
+@media (min-width: 992px) {
+  .main-h1-container {
+    margin-top: 0;
+  }
+  .hero-img {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 100%;
+  }
+}
+
+/*== CALCULATOR ==*/
+
+/* Small */
+@media (max-width: 767px){
+  .table {
+    width: 150%;
+  }
+  th {
+    border-width: 1px;
+  }
+}
+
+@media print {
+  button {
+    visibility: hidden;
+  }
+  h1, .print-btn {
+    visibility: hidden;
+  }
+  .table {
+    width: 100%;
+  }
 }
