@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/patriciosebastian/clearcalc">
-    <img src="https://www.clearcalc.app/image/ClearCalc_logo.png" alt="Logo" width="150" height="150">
+    <img src="https://www.clearcalc.app/image/ClearCalc_logo.png" alt="Logo" width="450" height="100">
   </a>
 
   <h3 align="center">ClearCalc</h3>
