@@ -86,7 +86,7 @@ h6,
 
 /***** Loan Calculator *****/
 
-.loan-form {
+.loan-form, .home-buying-power-form {
   background-color: rgb(231, 231, 231);
   border-radius: 2px;
   padding: .7rem !important;

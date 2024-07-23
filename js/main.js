@@ -52,7 +52,7 @@ function calculateAmortization() {
     const currencyFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
-      });
+    });
 
     document.querySelector("#totalPrincipal").textContent = currencyFormatter.format(totalPrincipal);
     document.querySelector("#totalInterest").textContent = currencyFormatter.format(totalInterest);

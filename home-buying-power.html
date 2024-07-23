@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <title>ClearCalc: A Loan Calculator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="image/favicon.png" />
+    <!-- External JS -->
+    <script src="js/homeBuyingPower.js" defer></script>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <!-- **** NAV **** -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a href="index.html">
+          <img class="navbar-brand" src="image/ClearCalc_light_color.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'" width="90"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="app.html">Calculator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home-buying-power.html">Home Buying Power</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- **** MAIN **** -->
+    <main class="flex-shrink-0">
+      <div class="container pt-5">
+        <h1 class="mt-5">Home Buying Power Calculator</h1>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <!-- TODO: add placeholder values for the four first fields, 0 for the rest -->
+            <form class="home-buying-power-form p-2">
+              <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="income">Annual Income:</label>
+                    <input type="number" class="form-control form-input" id="income" name="income" min="0" step="1000" required>
+                </div>
+                <div class="form-group col-12">
+                    <label for="downPayment">Down Payment:</label>
+                    <input type="number" class="form-control form-input" id="downPayment" name="downPayment" min="0" step="1000" required>
+                </div>
+                <div class="form-group col-12">
+                    <label for="loanTerm">Loan Term (Years):</label>
+                    <input type="number" class="form-control form-input" id="loanTerm" name="loanTerm" min="1" max="30" step="1" required>
+                </div>
+                <div class="form-group col-12">
+                    <label for="interestRate">Interest Rate (%):</label>
+                    <input type="number" class="form-control form-input" id="interestRate" name="interestRate" min="0" step="0.01" required>
+                </div>
+                <div class="form-group col-12">
+                    <label for="otherDebt">Monthly Other Debt Payments:</label>
+                    <input type="number" class="form-control form-input" id="otherDebt" name="otherDebt" min="0" step="100">
+                </div>
+                <div class="form-group col-12">
+                    <label for="propertyTax">Annual Property Tax (%):</label>
+                    <input type="number" class="form-control form-input" id="propertyTax" name="propertyTax" min="0" step="0.01">
+                </div>
+                <div class="form-group col-12">
+                    <label for="insurance">Annual Home Insurance:</label>
+                    <input type="number" class="form-control form-input" id="insurance" name="insurance" min="0" step="100">
+                </div>
+                <div class="form-group col-12">
+                    <label for="hoa">Monthly HOA Fees:</label>
+                    <input type="number" class="form-control form-input" id="hoa" name="hoa" min="0" step="50">
+                </div>
+              </div>
+              <button type="button" class="btn btn-dark mt-2 calculate-btn" onclick="calculateHomeBuyingPower()">Calculate</button>
+              <button type="button" class="clear-button btn btn-outline-dark mt-2" onclick="clearHomeBuyingPower()">Clear</button>
+            </form>
+          </div>
+          <div class="col monthly-payments-section">
+            <div class="payment-title" id="paymentTitle">
+              <p>Your Home Buying Power</p>
+            </div>
+            <p class="monthly-payment" id="homeBuyingPower">$0</p>
+            <div class="row">
+              <div class="col-6 totals">
+                <label class="text-left" for="totalPrincipal">Total Loan Amount</label>
+              </div>
+              <div class="col-6 text-end totals" id="totalLoanAmount"></div>
+              <div class="col-6 totals">
+                <label class="text-left" for="monthlyPayment">Estimated Monthly Payment</label>
+              </div>
+              <div class="col-6 text-end totals" id="monthlyPayment"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- **** FOOTER **** -->
+    <footer class="footer mt-auto py-3 bottom-0 w-100">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- <p class="text-light text-center mb-0">ClearCalc</p> -->
+          <img class="footer-logo text-light text-center mb-0 mx-auto" src="image/ClearCalc_light_color.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'"/>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
