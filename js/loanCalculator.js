@@ -28,7 +28,7 @@ function calculateAmortization() {
 
     let balance = loanAmount;
     let totalInterest = 0;
-    let scheduleTable = '<div class="col mx-0 px-0"><div class="table-responsive"><table class="table table-striped table-hover"><thead class="text-white table-header" id="tableHeader"><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
+    let scheduleTable = '<h1 class="mt-2">Amortization Schedule</h1><div class="col mx-0 px-0"><div class="table-responsive"><table class="table table-striped table-hover"><thead class="text-white table-header" id="tableHeader"><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Total Interest</th><th>Balance</th></tr></thead>';
 
     // loop over each month for the length of the term
     // calculate each value for current month
