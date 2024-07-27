@@ -1,4 +1,5 @@
 function calculateHomeBuyingPower() {
+  // TODO: I might need to include credit score
   const income = parseFloat(document.querySelector("#income").value);
   const downPayment = parseFloat(document.querySelector("#downPayment").value) || 0;
   const loanTerm = parseFloat(document.querySelector("#loanTerm").value);
