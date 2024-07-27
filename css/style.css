@@ -103,13 +103,20 @@ h6,
   font-style: italic;
 }
 
-.table {
+.table, .hbp-monthly-payments-section {
   margin-bottom: 6rem;
 }
 
 .monthly-payment {
   text-align: center;
   font-size: 4rem;
+  font-weight: bold;
+  color: #2B404F;
+}
+
+.hbp-home-buying-power {
+  text-align: center;
+  font-size: 3.5rem;
   font-weight: bold;
   color: #2B404F;
 }
@@ -159,6 +166,9 @@ footer {
   }
   .main-img-container {
     margin-top: 0 !important;
+  }
+  .hbp-home-buying-power {
+    font-size: 3.5rem;
   }
 }
 
