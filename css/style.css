@@ -86,6 +86,13 @@ h6,
 
 /***** Loan Calculator *****/
 
+/* TODO: I'm not sure if this works as desired, everywhere.
+* check my external monitor as well.
+**/
+main div.row:first-of-type {
+  margin-bottom: 4rem;
+}
+
 .loan-form, .home-buying-power-form {
   background-color: rgb(231, 231, 231);
   border-radius: 2px;
@@ -168,7 +175,7 @@ footer {
     margin-top: 0 !important;
   }
   .hbp-home-buying-power {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 }
 
