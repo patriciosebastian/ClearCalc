@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <!-- TODO: update copy -->
-    <title>ClearCalc: A Loan Calculator</title>
+    <title>ClearCalc: Emergency Fund Calculator</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS -->
-    <!-- TODO: update bootstrap. add dark mode -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -19,6 +17,8 @@
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="image/favicon.png" />
+    <!-- External JS -->
+    <script src="js/emergencyFundCalculator.js" defer></script>
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -28,58 +28,53 @@
         <a href="index.html">
           <img class="navbar-brand" src="image/ClearCalc_light_color.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'" width="90"/>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="loan-calculator.html">Loan Calculator</a>
+                <a class="nav-link" href="loan-calculator.html">Loan Calculator</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home-buying-power.html">Home Buying Power Calculator</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="emergency-fund-calculator.html">Emergency Fund Calculator</a>
-          </li>
+                <a class="nav-link" href="home-buying-power.html">Home Buying Power Calculator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="emergency-fund-calculator.html">Emergency Fund Calculator</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- **** MAIN **** -->
-    <main class="flex-shrink-0 h-100 mt-4 mt-md-5 mt-lg-0">
-      <div class="container h-100 col-xxl-8 px-4 pt-5 pt-sm-0 pt-lg-0 d-flex flex-column justify-content-center flex-lg-row justify-content-lg-center align-items-lg-center">
-        <div class="row g-5 mt-2 mt-lg-0 row-cols-1 row-cols-lg-2 align-items-md-center">
-          <div class="main-h1-container col order-last order-lg-first">
-            <img class="logo-img img-fluid d-block mb-3" src="image/ClearCalc_logo.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'" width="50%" />
-            <p class="lead fw-normal py-2 primary-color main-subheading">
-              The perfect tool for when you need to calculate
-              <strong>clear</strong> results, no muddy stuff.
-            </p>
-            <div>
-              <!-- TODO: think about this CTA -->
-              <a type="button" class="btn btn-lg cta-btn px-4 me-md-2 mt-2 primary-color" href="/loan-calculator.html">Try It Now!</a>
-            </div>
+    <main class="flex-shrink-0">
+      <div class="container pt-5">
+        <h1 class="mt-5">Emergency Fund Calculator</h1>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <form class="emergency-fund-form p-2">
+              <div class="form-row">
+                <div class="form-group col-12">
+                  <label for="monthlyExpenses">Monthly Living Expenses:</label>
+                  <input type="number" class="form-control form-input" id="monthlyExpenses" name="monthlyExpenses" min="0" step="100" required>
+                </div>
+                <div class="form-group col-12">
+                  <label for="coveragePeriod">Desired Coverage Period (Months):</label>
+                  <input type="number" class="form-control form-input" id="coveragePeriod" name="coveragePeriod" min="1" max="12" step="1" required>
+                </div>
+              </div>
+              <button type="button" class="btn btn-dark mt-2" onclick="calculateEmergencyFund()" id="calculateBtn">Calculate</button>
+              <button type="button" class="clear-button btn btn-outline-dark mt-2" onclick="clearEmergencyFund()">Clear</button>
+            </form>
           </div>
-          <div class="col mt-sm-0 main-img-container">
-            <img
-              class="img-fluid center-block d-block mx-auto hero-img"
-              src="image/cc_graphic.svg"
-              alt="Blank document behind a calculator displaying two dollar signs"
-              width="400"
-              height="200"
-            />
+          <div class="col emergency-fund-section">
+            <div class="payment-title" id="paymentTitle">
+              <p>Your Recommended Emergency Fund</p>
+            </div>
+            <p class="emergency-fund-amount" id="emergencyFundAmount">$0</p>
           </div>
         </div>
       </div>
@@ -88,7 +83,6 @@
     <footer class="footer mt-auto py-3 bottom-0 w-100">
       <div class="container-fluid">
         <div class="row">
-          <!-- <p class="text-light text-center mb-0">ClearCalc</p> -->
           <img class="footer-logo text-light text-center mb-0 mx-auto" src="image/ClearCalc_light_color.png" alt="Logo - The 'ClearCalc' brand name with a magnifying glass instead of the first 'a'"/>
         </div>
       </div>
