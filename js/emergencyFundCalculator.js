@@ -1,17 +1,34 @@
 function calculateEmergencyFund() {
-  const monthlyExpenses = parseFloat(document.getElementById('monthlyExpenses').value);
-  const coveragePeriod = parseFloat(document.getElementById('coveragePeriod').value);
+  const monthlyExpenses = parseFloat(document.querySelector('#monthlyExpenses').value);
+  const coveragePeriod = parseFloat(document.querySelector('#coveragePeriod').value);
+
+  const currencyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
 
   if (!isNaN(monthlyExpenses) && !isNaN(coveragePeriod)) {
     const emergencyFund = monthlyExpenses * coveragePeriod;
-    document.getElementById('emergencyFundAmount').textContent = `$${emergencyFund.toFixed(2)}`;
+    document.querySelector('#emergencyFundAmount').textContent = `${currencyFormatter.format(emergencyFund.toFixed(2))}`;
   } else {
-    document.getElementById('emergencyFundAmount').textContent = '$0';
+    document.querySelector('#emergencyFundAmount').textContent = '$0';
   }
 }
 
+// return key on keyboard clicks calculate button
+const input = document.querySelector('#coveragePeriod');
+input.addEventListener("keypress", function(event) {
+  // if the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // cancel the default action
+    event.preventDefault();
+    // trigger the button element with a click
+    document.querySelector("#calculateBtn").click();
+  }
+});
+
 function clearEmergencyFund() {
-  document.getElementById('monthlyExpenses').value = '';
-  document.getElementById('coveragePeriod').value = '';
-  document.getElementById('emergencyFundAmount').textContent = '$0';
+  document.querySelector('#monthlyExpenses').value = '';
+  document.querySelector('#coveragePeriod').value = '';
+  document.querySelector('#emergencyFundAmount').textContent = '$0';
 }
