@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>ClearCalc: Emergency Fund Calculator</title>
+    <title>ClearCalc: Debt-to-Income Ratio Calculator</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS -->
@@ -18,7 +18,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="image/favicon.png" />
     <!-- External JS -->
-    <script src="js/emergencyFundCalculator.js" defer></script>
+    <script src="js/debtToIncomeCalculator.js" defer></script>
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -43,10 +43,10 @@
                 <a class="nav-link" href="home-buying-power.html">Home Buying Power Calculator</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="emergency-fund-calculator.html">Emergency Fund Calculator</a>
+                <a class="nav-link" href="emergency-fund-calculator.html">Emergency Fund Calculator</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="debt-to-income.html">Debt-to-Income Ratio Calculator</a>
+                <a class="nav-link active" aria-current="page" href="debt-to-income-calculator.html">Debt-to-Income Ratio Calculator</a>
             </li>
           </ul>
         </div>
@@ -55,29 +55,29 @@
     <!-- **** MAIN **** -->
     <main class="flex-shrink-0">
       <div class="container pt-5">
-        <h1 class="mt-5">Emergency Fund Calculator</h1>
+        <h1 class="mt-5">Debt-to-Income Ratio Calculator</h1>
         <div class="row">
           <div class="col-12 col-md-6">
-            <form class="emergency-fund-form p-2">
+            <form class="debt-to-income-form p-2">
               <div class="form-row">
                 <div class="form-group col-12">
-                  <label for="monthlyExpenses">Monthly Living Expenses:</label>
-                  <input type="number" class="form-control form-input" id="monthlyExpenses" name="monthlyExpenses" min="0" step="25" required>
+                  <label for="monthlyIncome">Monthly Income:</label>
+                  <input type="number" class="form-control form-input" id="monthlyIncome" name="monthlyIncome" min="0" step="25" required>
                 </div>
                 <div class="form-group col-12">
-                  <label for="coveragePeriod">Desired Coverage Period (Months):</label>
-                  <input type="number" class="form-control form-input" id="coveragePeriod" name="coveragePeriod" min="1" max="24" step="1" required>
+                  <label for="monthlyDebtPayments">Monthly Debt Payments:</label>
+                  <input type="number" class="form-control form-input" id="monthlyDebtPayments" name="monthlyDebtPayments" min="0" step="25" required>
                 </div>
               </div>
-              <button type="button" class="btn btn-dark mt-2" onclick="calculateEmergencyFund()" id="calculateBtn">Calculate</button>
-              <button type="button" class="clear-button btn btn-outline-dark mt-2" onclick="clearEmergencyFund()">Clear</button>
+              <button type="button" class="btn btn-dark mt-2" onclick="calculateDebtToIncomeRatio()" id="calculateBtn">Calculate</button>
+              <button type="button" class="clear-button btn btn-outline-dark mt-2" onclick="clearDebtToIncomeRatio()">Clear</button>
             </form>
           </div>
-          <div class="col emergency-fund-section">
+          <div class="col debt-to-income-section">
             <div class="payment-title" id="paymentTitle">
-              <p>Your Recommended Emergency Fund</p>
+              <p>Your Debt-to-Income Ratio</p>
             </div>
-            <p class="emergency-fund-amount" id="emergencyFundAmount">$0</p>
+            <p class="debt-to-income-ratio" id="debtToIncomeRatio">0%</p>
           </div>
         </div>
       </div>
