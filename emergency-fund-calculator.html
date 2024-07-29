@@ -59,11 +59,11 @@
               <div class="form-row">
                 <div class="form-group col-12">
                   <label for="monthlyExpenses">Monthly Living Expenses:</label>
-                  <input type="number" class="form-control form-input" id="monthlyExpenses" name="monthlyExpenses" min="0" step="100" required>
+                  <input type="number" class="form-control form-input" id="monthlyExpenses" name="monthlyExpenses" min="0" step="25" required>
                 </div>
                 <div class="form-group col-12">
                   <label for="coveragePeriod">Desired Coverage Period (Months):</label>
-                  <input type="number" class="form-control form-input" id="coveragePeriod" name="coveragePeriod" min="1" max="12" step="1" required>
+                  <input type="number" class="form-control form-input" id="coveragePeriod" name="coveragePeriod" min="1" max="24" step="1" required>
                 </div>
               </div>
               <button type="button" class="btn btn-dark mt-2" onclick="calculateEmergencyFund()" id="calculateBtn">Calculate</button>
