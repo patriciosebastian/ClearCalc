@@ -11,7 +11,7 @@ function calculateEmergencyFund() {
     const emergencyFund = monthlyExpenses * coveragePeriod;
     document.querySelector('#emergencyFundAmount').textContent = `${currencyFormatter.format(emergencyFund.toFixed(2))}`;
   } else {
-    document.querySelector('#emergencyFundAmount').textContent = '$0';
+    document.querySelector('#emergencyFundAmount').textContent = '$NaN';
   }
 }
 
