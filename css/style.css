@@ -14,7 +14,7 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  height: 100dvh;
+  height: 100vh;
 }
 
 img, picture, video, canvas, svg {
@@ -159,7 +159,7 @@ main div.row:first-of-type {
 /***** Blog *****/
 
 .blog-list { 
-  margin-top: 2rem;
+  margin-bottom: 7.5rem;
 }
 
 .blog-post { 
@@ -194,17 +194,28 @@ main div.row:first-of-type {
 /***** Articles *****/
 
 article {
-  margin-bottom: 10rem;
-  text-wrap: balance;
+  margin-bottom: 7.5rem;
 }
 
-.article-sub-heading {
-  font-size: 1.5rem;
-  font-weight: bold; 
+.article-body {
+  font-size: 1.125rem;
 }
 
-.article-paragraph-heading, .article-list-heading, .article-list-item-summary {
+.article-sub-heading, .article-paragraph-heading, .article-list-heading {
+  font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
+.article-body ul {
+  margin-bottom: 1.5rem;
+}
+
+.article-body li {
+  padding-left: .375rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .internal-link {
