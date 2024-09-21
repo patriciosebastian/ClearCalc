@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="image/favicon.png" />
+    <!-- Lottie Bodymovin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -76,18 +78,18 @@
               <strong>clear</strong> results, no muddy stuff.
             </p>
             <div>
-              <!-- TODO: think about this CTA -->
               <a type="button" class="btn btn-lg cta-btn px-4 me-md-2 mt-2 primary-color" href="/loan-calculator.html">Try It Now!</a>
             </div>
           </div>
           <div class="col mt-sm-0 main-img-container">
-            <img
+            <!-- <img
               class="img-fluid center-block d-block mx-auto hero-img"
               src="image/cc_graphic.svg"
               alt="Blank document behind a calculator displaying two dollar signs"
               width="400"
               height="200"
-            />
+            /> -->
+            <div class="lottie-container center-block d-block mx-auto hero-img"></div>
           </div>
         </div>
       </div>
@@ -108,6 +110,16 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
+    <!-- Lottie -->
+    <script>
+      const animation = bodymovin.loadAnimation({
+        container: document.querySelector('.lottie-container'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'image/Animation - woman_with_clipboard.json' // Replace with your Lottie JSON file path
+      });
+    </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "92c07d3bc89d4cb4929506c21e66a86d"}'></script>
     <!-- End Cloudflare Web Analytics -->
