@@ -7,7 +7,7 @@
   <h3 align="center">ClearCalc</h3>
 
   <p align="center">
-    The perfect tool for when you need to generate a clear amortization schedule, no muddy stuff.
+    The perfect tool for when you need to calculate clear results, no muddy stuff.
     <br/>
     <br/>
   </p>
