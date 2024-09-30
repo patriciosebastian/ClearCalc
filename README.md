@@ -19,7 +19,7 @@
 
 ![Screen Shot](https://www.patriciosalazar.dev/img/ClearCalc_Desktop.png)
 
-ClearCalc is a JavaScript amortization schedule generator. Based on user inputs, it calculates loan details and generates a complete amortization schedule with all the data you would expect to see. Built with JavaScript and Bootstrap, it's designed to be straightforward and easy to use. It's fully responsive with side scrolling tables on smaller sized viewports. Try it out now!
+ClearCalc tools include the Amortization Schedule Generator, Home Buying Power Calculator, and more, as well as a blog. It relies heavily on user inputs to calculate details and generate results with all the data you would expect to see. Built with JavaScript and Bootstrap, it's designed to be straightforward and easy to use. Of course, it's fully responsive. Try it out now!
 
 ## Built With
 
